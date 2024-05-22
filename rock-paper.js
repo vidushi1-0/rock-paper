@@ -1,6 +1,9 @@
 let userscore = 0;
 let compscore = 0;
 
+let userscorePara = document.querySelector("#user-score");
+let compscorePara = document.querySelector("#comp-score");
+
 const choices = document.querySelectorAll(".choice");
 let msg = document.querySelector(".msg");
 
@@ -19,10 +22,14 @@ const generatecompChoice = () => {
 const showWinner = (userwin , compchoice , userchoice) => {
     if(userwin) {
         console.log("You win !!!");
+        userscore++;
+        userscorePara.innerText = userscore;
         msg.innerText = `Congratulations! You win ! ${userchoice} beats ${compchoice}`;
         msg.style.backgroundColor = "green";
     } else {
         console.log("you lose ....");
+        compscore++;
+        compscorePara.innerText = compscore;
         msg.innerText = `You lost... ${compchoice} beats  ${userchoice}`;
         msg.style.backgroundColor = "red";
     }
